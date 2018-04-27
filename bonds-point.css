@@ -9,9 +9,9 @@
 	display: table;
 	border-collapse:separate;
     border-spacing: 0 5px;
+    width: 900px;
 }
 #app-bonds-point .servant {
-	width: 900px;
 	clear: both;
 	display:table-row;
 }
@@ -22,7 +22,9 @@
 	vertical-align: middle;
 	padding: 0 5px;
 }
-
+#app-bonds-point .servant .bonds-list {
+	width: 600px;
+}
 #app-bonds-point .bonds {
 	display:inline-block;
 	float: left;
