@@ -15,15 +15,22 @@
 	clear: both;
 	display:table-row;
 }
-#app-bonds-point .servant .no, #app-bonds-point .servant .name,
+#app-bonds-point .servant .name,
 #app-bonds-point .servant .class, #app-bonds-point .servant .rarity,
 #app-bonds-point .servant .bonds-list {
 	display: table-cell;
 	vertical-align: middle;
 	padding: 0 5px;
 }
+#app-bonds-point .servant .no {
+	display: none;
+}
+#app-bonds-point .servant .class {
+    font-size: 8px;
+    width: 60px;
+}
 #app-bonds-point .servant .bonds-list {
-	width: 600px;
+	width: 550px;
 }
 #app-bonds-point .bonds {
 	display:inline-block;
