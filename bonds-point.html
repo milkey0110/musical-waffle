@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./bonds-point.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
+</head>
+<body>
+  <div id="app-bonds-point">
+
+    <div>
+      <div>
+        <div>
+          <div>
+            <div class="condition-radio">
+              <input type="radio" name="condition" value="cr" v-model="condition" />
+            </div>
+            <div class="condition-title">クラス・レアリティで絞る</div>
+            <div class="condition-subtitle">クラス</div>
+            <label><input type="checkbox" v-model="checkedAllClassO" />全チェック</label>
+            <label><input type="checkbox" value="セイバー" v-model="checkedClassO" />セイバー</label>
+            <label><input type="checkbox" value="アーチャー" v-model="checkedClassO" />アーチャー</label>
+            <label><input type="checkbox" value="ランサー" v-model="checkedClassO" />ランサー</label>
+            <label><input type="checkbox" value="ライダー" v-model="checkedClassO" />ライダー</label>
+            <label><input type="checkbox" value="キャスター" v-model="checkedClassO" />キャスター</label>
+            <label><input type="checkbox" value="アサシン" v-model="checkedClassO" />アサシン</label>
+            <label><input type="checkbox" value="バーサーカー" v-model="checkedClassO" />バーサーカー</label>
+            <label><input type="checkbox" value="その他" v-model="checkedClassO" />その他</label>
+          </div>
+          <div>
+            <div class="condition-subtitle">レアリティ</div>
+            <label><input type="checkbox" v-model="checkedAllRarity" />全チェック</label>
+            <label><input type="checkbox" value="5" v-model="checkedRarity" />星5</label>
+            <label><input type="checkbox" value="4" v-model="checkedRarity" />星4</label>
+            <label><input type="checkbox" value="3" v-model="checkedRarity" />星3</label>
+            <label><input type="checkbox" value="2" v-model="checkedRarity" />星2</label>
+            <label><input type="checkbox" value="1" v-model="checkedRarity" />星1</label>
+            <label><input type="checkbox" value="0" v-model="checkedRarity" />星0</label>
+          </div>
+        </div>
+        <div>
+          <div class="condition-radio">
+            <input type="radio" name="condition" value="name" v-model="condition" />
+          </div>
+          <div class="condition-title">名前で絞る</div>
+          <input type="text" id="js-input-name" class="input-name" />
+          <input type="button" value="絞り込み" v-on:click="refineName" />
+        </div>
+        <div>
+          <div class="condition-radio">
+            <input type="radio" name="condition" value="check" v-model="condition" />
+          </div>
+          <div class="condition-title">チェックボックスで絞る</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <label><input type="checkbox" v-model="visibleLv10" />絆Lv10まで表示</label>
+    </div>
+
+    <div class="table">
+      <div v-for="(servant, key) in filterServantList" class="servant">
+        <div class="checked"><input type="checkbox" v-model="servant.checked" /></div>
+        <div class="no">{{servant.no}}</div>
+        <div class="name">{{servant.name}}</div>
+        <div class="class">{{servant.class}}</div>
+        <div class="rarity">{{servant.rarity}}</div>
+        <div class="bonds-list">
+          <div class="bonds bonds1" :style="{width:calcWidth(servant.bonds[0]) + 'px'}">{{servant.bonds[0]}}</div>
+          <div class="bonds bonds2" :style="{width:calcWidth(servant.bonds[1]) + 'px'}">{{servant.bonds[1]}}</div>
+          <div class="bonds bonds3" :style="{width:calcWidth(servant.bonds[2]) + 'px'}">{{servant.bonds[2]}}</div>
+          <div class="bonds bonds4" :style="{width:calcWidth(servant.bonds[3]) + 'px'}">{{servant.bonds[3]}}</div>
+          <div class="bonds bonds5" :style="{width:calcWidth(servant.bonds[4]) + 'px'}">{{servant.bonds[4]}}</div>
+          <div class="bonds bonds6" :style="{width:calcWidth(servant.bonds[5]) + 'px'}" :class="{'bonds-invisible':!visibleLv10}">{{servant.bonds[5]}}</div>
+          <div class="bonds bonds7" :style="{width:calcWidth(servant.bonds[6]) + 'px'}" :class="{'bonds-invisible':!visibleLv10}">{{servant.bonds[6]}}</div>
+          <div class="bonds bonds8" :style="{width:calcWidth(servant.bonds[7]) + 'px'}" :class="{'bonds-invisible':!visibleLv10}">{{servant.bonds[7]}}</div>
+          <div class="bonds bonds9" :style="{width:calcWidth(servant.bonds[8]) + 'px'}" :class="{'bonds-invisible':!visibleLv10}">{{servant.bonds[8]}}</div>
+          <div class="bonds bonds10" :style="{width:calcWidth(servant.bonds[9]) + 'px'}" :class="{'bonds-invisible':!visibleLv10}">{{servant.bonds[9]}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./bonds-point.js"></script>
+</body>
+</html>
