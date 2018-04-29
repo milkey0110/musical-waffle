@@ -53,7 +53,7 @@
           <div class="condition-table-cell">
             <div class="condition-title"><label for="condition-name">名前で絞る</label></div>
             <div :class="{'condition-invisible':!isConditionName}">
-              <input type="text" id="js-input-name" class="input-name" />
+              <input type="text" id="js-input-name" class="input-name" />（,区切り複数指定可）
               <input type="button" value="絞り込み" v-on:click="refineName" />
             </div>
           </div>
