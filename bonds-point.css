@@ -55,20 +55,23 @@
 	display: table;
 	border-collapse:separate;
 	border-spacing: 0;
-    width: 900px;
+    width: 800px;
     margin-top:15px;
 }
-#app-bonds-point .servant {
+#app-bonds-point .bonds-table-row {
 	clear: both;
 	display:table-row;
 	height: 30px;
 }
-#app-bonds-point .servant:nth-child(odd) {
+#app-bonds-point .bonds-table-row:nth-child(odd) {
 	background-color: #f6f6f6;
 }
 #app-bonds-point .bonds-table-cell {
 	display: table-cell;
 	vertical-align: middle;
+}
+#app-bonds-point .bonds-table-head {
+	color: #666;
 }
 #app-bonds-point .name, #app-bonds-point .rarity, 
 #app-bonds-point .bonds-list{
@@ -77,12 +80,12 @@
 #app-bonds-point .bonds-table-cell.no {
 	display: none;
 }
-#app-bonds-point .class {
+/*#app-bonds-point　.bonds-table-row:not(.bonds-table-head) .class {
     font-size: 8px;
     width: 60px;
-}
+}*/
 #app-bonds-point .bonds-list {
-	width: 550px;
+	width: 400px;
 }
 #app-bonds-point .bonds {
 	display:inline-block;

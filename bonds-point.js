@@ -3,6 +3,8 @@ let allRarity = ["0", "1", "2", "3", "4", "5"];
 let conditionCr = "cr";
 let conditionName = "name";
 let conditionCheck = "check";
+let widthDevided5 = 150;
+let widthDevided10 = 5000;
 
 var app = new Vue({
 	el: "#app-bonds-point",
@@ -22,7 +24,7 @@ var app = new Vue({
 		condition: "cr",
 
 		visibleLv10: false,
-		widthDevided: 100
+		widthDevided: widthDevided5
 	},
 	computed: {
 		filterServantList: function() {
@@ -139,10 +141,10 @@ var app = new Vue({
 		},
 		visibleLv10: function(newVal, oldVal) {
 			if (newVal) {
-				app.widthDevided = 3500;
+				app.widthDevided = widthDevided10;
 				return;
 			}
-			app.widthDevided = 100;
+			app.widthDevided = widthDevided5;
 		}
 	},
 	beforeCreate: function() {

@@ -7,7 +7,7 @@
 </head>
 <body>
   <div id="app-bonds-point">
-    <h1>FGO サーヴァント絆レベル</h1>
+    <h1>FGO サーヴァント絆ポイント</h1>
 
     <div class="condition-table">
         <div class="condition-table-row">
@@ -70,7 +70,15 @@
     </div>
 
     <div class="bonds-table">
-      <div v-for="(servant, key) in filterServantList" class="servant">
+      <div class="bonds-table-row bonds-table-head">
+        <div class="bonds-table-cell checked"></div>
+        <div class="bonds-table-cell no">No</div>
+        <div class="bonds-table-cell name">名前</div>
+        <div class="bonds-table-cell class">クラス</div>
+        <div class="bonds-table-cell rarity">☆</div>
+        <div class="bonds-table-cell bonds-list">絆ポイント</div>
+      </div>
+      <div v-for="(servant, key) in filterServantList" class="bonds-table-row servant">
         <div class="bonds-table-cell checked">
           <input type="checkbox" v-model="servant.checked" v-bind:id="'servant-check-' + key" />
         </div>
