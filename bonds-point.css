@@ -1,6 +1,7 @@
 #app-bonds-point {
 	font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
 	font-size: 12px;
+	width: 810px;
 }
 
 /*
@@ -14,7 +15,7 @@
 	border-collapse:collapse;
 	border-spacing: 0;
 	background-color: #f6f6f6;
-	width: 800px;
+	min-width: 800px;
 }
 #app-bonds-point .condition-table-row {
 	display: table-row;
