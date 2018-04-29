@@ -2,34 +2,86 @@
 	font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
 	font-size: 12px;
 }
+
+/*
+ * 検索条件
+ */
+#app-bonds-point .condition-lv10 {
+	font-size: 10px;
+}
+#app-bonds-point .condition-table {
+	display: table;
+	border-collapse:collapse;
+	border-spacing: 0;
+	background-color: #f6f6f6;
+	width: 800px;
+}
+#app-bonds-point .condition-table-row {
+	display: table-row;
+	border: 1px solid #fff;
+}
+#app-bonds-point .condition-table-cell {
+	display: table-cell;
+}
+#app-bonds-point .condition-invisible {
+	display: none;
+}
+#app-bonds-point .condition-subtitle {
+	display: inline-block;
+	width: 70px;
+	border-top: 1px solid #fff;
+	vertical-align: top;
+}
+#app-bonds-point .condition-cr-items {
+	display: inline-block;
+}
+#app-bonds-point .condition-cr-items label {
+	margin-right: 10px;
+}
 #app-bonds-point .input-name {
 	width: 300px
 }
-#app-bonds-point .table {
+#app-bonds-point .condition-radio {
+	width: 25px
+}
+#app-bonds-point .condition-lv10 {
+	font-size: 10px;
+}
+
+/**
+ * サーヴァント
+ */
+#app-bonds-point .bonds-table {
 	display: table;
 	border-collapse:separate;
-    border-spacing: 0 5px;
+	border-spacing: 0;
     width: 900px;
+    margin-top:15px;
 }
 #app-bonds-point .servant {
 	clear: both;
 	display:table-row;
+	height: 30px;
 }
-#app-bonds-point .servant .name,
-#app-bonds-point .servant .class, #app-bonds-point .servant .rarity,
-#app-bonds-point .servant .bonds-list {
+#app-bonds-point .servant:nth-child(odd) {
+	background-color: #f6f6f6;
+}
+#app-bonds-point .bonds-table-cell {
 	display: table-cell;
 	vertical-align: middle;
+}
+#app-bonds-point .name, #app-bonds-point .rarity, 
+#app-bonds-point .bonds-list{
 	padding: 0 5px;
 }
-#app-bonds-point .servant .no {
+#app-bonds-point .bonds-table-cell.no {
 	display: none;
 }
-#app-bonds-point .servant .class {
+#app-bonds-point .class {
     font-size: 8px;
     width: 60px;
 }
-#app-bonds-point .servant .bonds-list {
+#app-bonds-point .bonds-list {
 	width: 550px;
 }
 #app-bonds-point .bonds {
@@ -41,6 +93,7 @@
 	padding: 2px;
 	word-break: break-all;
 	line-height: 1em;
+	overflow: hidden;
 }
 #app-bonds-point .bonds1 {
 	color: #eee;
@@ -62,9 +115,16 @@
 	display: none;
 }
 #app-bonds-point .bonds6, #app-bonds-point .bonds8, #app-bonds-point .bonds10 {
-	background-color: #eee;
+	background-color: #aaa;
 }
 #app-bonds-point .bonds7, #app-bonds-point .bonds9 {
 	background-color: #ccc;
 }
 
+/*
+ * 注釈
+ */
+#app-bonds-point #notice {
+	margin-top: 20px;
+	font-size: 10px;
+}

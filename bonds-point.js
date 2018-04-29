@@ -1,15 +1,18 @@
 let allClassO = ["セイバー", "アーチャー", "ランサー", "ライダー", "キャスター", "アサシン", "バーサーカー", "その他"];
 let allRarity = ["0", "1", "2", "3", "4", "5"];
+let conditionCr = "cr";
+let conditionName = "name";
+let conditionCheck = "check";
 
 var app = new Vue({
 	el: "#app-bonds-point",
 	data: {
 		servantList: [],
 
-		// 名前絞り込み初期値
+		// 絞り込み条件：名前
 		inputNameArray: [],
 
-		// チェックボックス初期値
+		// 絞り込み条件：チェックボックス
 		checkedClassO: allClassO,
 		checkedRarity: allRarity,
 		checkedAllClassO: true,
@@ -23,14 +26,32 @@ var app = new Vue({
 	},
 	computed: {
 		filterServantList: function() {
-			if (this.condition === "name") {
+			if (this.condition === conditionName) {
 				return this.servantList.filter(this.filterByName);
-			} else if (this.condition === "check") {
+			} else if (this.condition === conditionCheck) {
 				return this.servantList.filter(this.filterByCheck);
 			}
 			return this.servantList
 				.filter(this.filterByRarity)
 				.filter(this.filterByClassO);
+		},
+		isConditionCr: function() {
+			if (this.condition === conditionCr) {
+				return true;
+			}
+			return false;
+		},
+		isConditionName: function() {
+			if (this.condition === conditionName) {
+				return true;
+			}
+			return false;
+		},
+		isConditionCheck: function() {
+			if (this.condition === conditionCheck) {
+				return true;
+			}
+			return false;
 		}
 	},
 	methods: {

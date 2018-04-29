@@ -7,65 +7,80 @@
 </head>
 <body>
   <div id="app-bonds-point">
+    <h1>FGO サーヴァント絆レベル</h1>
 
-    <div>
-      <div>
-        <div>
-          <div>
-            <div class="condition-radio">
-              <input type="radio" name="condition" value="cr" v-model="condition" />
+    <div class="condition-table">
+        <div class="condition-table-row">
+          <div class="condition-table-cell condition-radio">
+            <input type="radio" name="condition" value="cr" v-model="condition" id="condition-cr" />
+          </div>
+          <div class="condition-table-cell">
+            <div class="condition-title"><label for="condition-cr">クラス・レアリティで絞る</label></div>
+            <div :class="{'condition-invisible':!isConditionCr}">
+              <div class="condition-subtitle">クラス</div>
+              <div class="condition-cr-items">
+                <label><input type="checkbox" v-model="checkedAllClassO" />全チェック</label><br>
+                <label><input type="checkbox" value="セイバー" v-model="checkedClassO" />セイバー</label>
+                <label><input type="checkbox" value="アーチャー" v-model="checkedClassO" />アーチャー</label>
+                <label><input type="checkbox" value="ランサー" v-model="checkedClassO" />ランサー</label>
+                <label><input type="checkbox" value="ライダー" v-model="checkedClassO" />ライダー</label>
+                <label><input type="checkbox" value="キャスター" v-model="checkedClassO" />キャスター</label>
+                <label><input type="checkbox" value="アサシン" v-model="checkedClassO" />アサシン</label>
+                <label><input type="checkbox" value="バーサーカー" v-model="checkedClassO" />バーサーカー</label>
+                <label><input type="checkbox" value="その他" v-model="checkedClassO" />その他</label>
+              </div>
             </div>
-            <div class="condition-title">クラス・レアリティで絞る</div>
-            <div class="condition-subtitle">クラス</div>
-            <label><input type="checkbox" v-model="checkedAllClassO" />全チェック</label>
-            <label><input type="checkbox" value="セイバー" v-model="checkedClassO" />セイバー</label>
-            <label><input type="checkbox" value="アーチャー" v-model="checkedClassO" />アーチャー</label>
-            <label><input type="checkbox" value="ランサー" v-model="checkedClassO" />ランサー</label>
-            <label><input type="checkbox" value="ライダー" v-model="checkedClassO" />ライダー</label>
-            <label><input type="checkbox" value="キャスター" v-model="checkedClassO" />キャスター</label>
-            <label><input type="checkbox" value="アサシン" v-model="checkedClassO" />アサシン</label>
-            <label><input type="checkbox" value="バーサーカー" v-model="checkedClassO" />バーサーカー</label>
-            <label><input type="checkbox" value="その他" v-model="checkedClassO" />その他</label>
-          </div>
-          <div>
-            <div class="condition-subtitle">レアリティ</div>
-            <label><input type="checkbox" v-model="checkedAllRarity" />全チェック</label>
-            <label><input type="checkbox" value="5" v-model="checkedRarity" />星5</label>
-            <label><input type="checkbox" value="4" v-model="checkedRarity" />星4</label>
-            <label><input type="checkbox" value="3" v-model="checkedRarity" />星3</label>
-            <label><input type="checkbox" value="2" v-model="checkedRarity" />星2</label>
-            <label><input type="checkbox" value="1" v-model="checkedRarity" />星1</label>
-            <label><input type="checkbox" value="0" v-model="checkedRarity" />星0</label>
+            <div :class="{'condition-invisible':!isConditionCr}">
+              <div class="condition-subtitle">レアリティ</div>
+              <div class="condition-cr-items">
+                <label><input type="checkbox" v-model="checkedAllRarity" />全チェック</label><br>
+                <label><input type="checkbox" value="5" v-model="checkedRarity" />星5</label>
+                <label><input type="checkbox" value="4" v-model="checkedRarity" />星4</label>
+                <label><input type="checkbox" value="3" v-model="checkedRarity" />星3</label>
+                <label><input type="checkbox" value="2" v-model="checkedRarity" />星2</label>
+                <label><input type="checkbox" value="1" v-model="checkedRarity" />星1</label>
+                <label><input type="checkbox" value="0" v-model="checkedRarity" />星0</label>
+              </div>
+            </div>
           </div>
         </div>
-        <div>
-          <div class="condition-radio">
-            <input type="radio" name="condition" value="name" v-model="condition" />
+        <div class="condition-table-row">
+          <div class="condition-table-cell condition-radio">
+            <input type="radio" name="condition" value="name" v-model="condition" id="condition-name" />
           </div>
-          <div class="condition-title">名前で絞る</div>
-          <input type="text" id="js-input-name" class="input-name" />
-          <input type="button" value="絞り込み" v-on:click="refineName" />
-        </div>
-        <div>
-          <div class="condition-radio">
-            <input type="radio" name="condition" value="check" v-model="condition" />
+          <div class="condition-table-cell">
+            <div class="condition-title"><label for="condition-name">名前で絞る</label></div>
+            <div :class="{'condition-invisible':!isConditionName}">
+              <input type="text" id="js-input-name" class="input-name" />
+              <input type="button" value="絞り込み" v-on:click="refineName" />
+            </div>
           </div>
-          <div class="condition-title">チェックボックスで絞る</div>
         </div>
-      </div>
+        <div class="condition-table-row">
+          <div class="condition-table-cell condition-radio">
+            <input type="radio" name="condition" value="check" v-model="condition" id="condition-check" />
+          </div>
+          <div class="condition-table-cell">
+            <div class="condition-title"><label for="condition-check">チェックボックスで絞る</label></div>
+          </div>
+        </div>
     </div>
-    <div>
+    <div class="condition-lv10">
       <label><input type="checkbox" v-model="visibleLv10" />絆Lv10まで表示</label>
     </div>
 
-    <div class="table">
+    <div class="bonds-table">
       <div v-for="(servant, key) in filterServantList" class="servant">
-        <div class="checked"><input type="checkbox" v-model="servant.checked" /></div>
-        <div class="no">{{servant.no}}</div>
-        <div class="name">{{servant.name}}</div>
-        <div class="class">{{servant.class}}</div>
-        <div class="rarity">{{servant.rarity}}</div>
-        <div class="bonds-list">
+        <div class="bonds-table-cell checked">
+          <input type="checkbox" v-model="servant.checked" v-bind:id="'servant-check-' + key" />
+        </div>
+        <div class="bonds-table-cell no">{{servant.no}}</div>
+        <div class="bonds-table-cell name">
+          <label v-bind:for="'servant-check-' + key">{{servant.name}}</label>
+        </div>
+        <div class="bonds-table-cell class">{{servant.class}}</div>
+        <div class="bonds-table-cell rarity">{{servant.rarity}}</div>
+        <div class="bonds-table-cell bonds-list">
           <div class="bonds bonds1" :style="{width:calcWidth(servant.bonds[0]) + 'px'}">{{servant.bonds[0]}}</div>
           <div class="bonds bonds2" :style="{width:calcWidth(servant.bonds[1]) + 'px'}">{{servant.bonds[1]}}</div>
           <div class="bonds bonds3" :style="{width:calcWidth(servant.bonds[2]) + 'px'}">{{servant.bonds[2]}}</div>
@@ -78,6 +93,10 @@
           <div class="bonds bonds10" :style="{width:calcWidth(servant.bonds[9]) + 'px'}" :class="{'bonds-invisible':!visibleLv10}">{{servant.bonds[9]}}</div>
         </div>
       </div>
+    </div>
+
+    <div id="notice">
+      サーヴァント名、絆ポイントは<a href="https://www9.atwiki.jp/f_go/">Fate/Grand Order @wiki</a>を参考にさせていただいています。<br>
     </div>
   </div>
   <script src="./bonds-point.js"></script>
